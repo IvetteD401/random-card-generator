@@ -1,30 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vet's Magical Cards</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <link rel="shortcut icon" href="./4geeks.ico">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="card mx-auto" style="width: 18rem; ">
-            <div class="card-body">
-                <div class="card-suit" id="card-suit"><h1>&hearts;</h1></div>
-                <div class="card-number text-center" id="card-number">4</div>
-                <div class="card-suit-bottom float-right" id="card-suit-bottom"><h1>&hearts;</h1></div>
-            </div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vet's Magical Cards</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="./4geeks.ico" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="generateCard" onclick="generate()">
+    <div class="card mx-auto mb-3" style="max-width: 18rem;">
+      <div class="card-body" id="card-body">
+        <div class="card-suit" id="card-suit"></div>
+        <div class="card-number text-center" id="card-number"></div>
+        <div
+          class="card-suit-bottom float-right flipper"
+          id="card-suit-bottom"
+        ></div>
+      </div>
+    </div>
 
+    <script>
+      function generate() {
+        let suits = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
+        let numbers = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+        let colors = ["red", "black"];
 
- 
- 
-        <!-- do not remove this bundle.js tag -->
-        <script type="text/javascript" src="./bundle.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+        let headerFooterSuits = suits[Math.floor(Math.random() * suits.length)];
+        let bodyNumbers = numbers[Math.floor(Math.random() * numbers.length)];
 
+        document.querySelector("#card-suit").innerHTML = headerFooterSuits;
+        document.querySelector(
+          "#card-suit-bottom"
+        ).innerHTML = headerFooterSuits;
+        document.querySelector("#card-number").innerHTML = bodyNumbers;
+        document.querySelector("#card-body").style.color =
+          colors[Math.floor(Math.random() * colors.length)];
+      }
+      generate();
+
+      let input = document.querySelector("#generateCard");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.querySelector("#generatCard").click();
+        }
+      });
+    </script>
+
+    <!-- do not remove this bundle.js tag -->
+    <script type="text/javascript" src="./bundle.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
