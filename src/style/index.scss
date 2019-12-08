@@ -14,3 +14,24 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+body {
+  background-image: url(https://media.istockphoto.com/photos/green-felt-and-playing-chips-abstract-background-picture-id672556284?k=6&m=672556284&s=612x612&w=0&h=ofClcfW6AHnx698r8tB-EIvdaajhch9I-Y2aH3bw4A4=);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.card {
+  padding-top: 30px;
+  height: 350px;
+}
+.card-number {
+  font-size: 70px;
+}
+
+.card-suit,
+// .card-suit-bottom {
+//   font-size: 30 px;
+// }
